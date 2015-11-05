@@ -1,0 +1,16 @@
+<settings>
+    [...]
+    <profiles>
+        <profile>
+            <id>inject-application-home</id>
+            <properties>
+                <application-home>/path/to/application</application-home>
+                <baseUrl>localhost</baseUrl>
+            </properties>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>inject-application-home</activeProfile>
+    </activeProfiles>
+</settings>
