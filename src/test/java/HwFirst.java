@@ -13,8 +13,9 @@ public class HwFirst {
 
         @Test
         public void Lesson1(){
+            String baseUrl = "http://localhost/wordpress/wp-login.php";
             driver = new FirefoxDriver();
-            driver.navigate().to("http://localhost/wordpress/wp-login.php");
+            driver.navigate().to(baseUrl);
             driver.findElement(By.id("user_login")).clear();
             driver.findElement(By.id("user_login")).sendKeys("Eva");
             driver.findElement(By.id("user_pass")).clear();
