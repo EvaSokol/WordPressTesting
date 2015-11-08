@@ -2,12 +2,11 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
- * Created by MASK on 05/11/2015.
+ * Created by Eva Sokolyanskaya on 05/11/2015.
  */
 public class HwFirst {
 
