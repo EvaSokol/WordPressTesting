@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,14 +33,19 @@ public class AddNewPostPage {
         return titleField;
     }
 
-    private static void initMessageBody() {
-        messageBody = driver.findElement(By.xpath(".//*[@id='tinymce']"));
+    private static void initMessageBody(String messageText) {
+//        messageBody = driver.findElement(By.xpath(".//*[@id='tinymce']"));
+        driver.switchTo().frame("content_ifr");
+        messageBody = driver.findElement(By.xpath("//body"));
+        messageBody.click();
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].innerHTML='" + messageText + "'", messageBody);
+        driver.switchTo().defaultContent();
     }
 
-    public static WebElement getMessageBody() {
+    public static void putMessageBody(String messageText) {
         if (messageBody == null)
-            initMessageBody();
-        return messageBody;
+            initMessageBody(messageText);
     }
 
     public static WebElement getPublishButton() {
