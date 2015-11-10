@@ -1,3 +1,4 @@
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -42,15 +43,10 @@ public class Common {
 
     public static void writeNewPost(String title, String messageText) {
         AddNewPostPage.getTitleField().sendKeys(title);
+
 //        AddNewPostPage.getTitleField().sendKeys(Keys.TAB + messageText);
+
         AddNewPostPage.putMessageBody(messageText);
-
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         AddNewPostPage.getPublishButton().click();
     }

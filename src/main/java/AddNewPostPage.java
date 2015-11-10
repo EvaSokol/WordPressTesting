@@ -34,12 +34,16 @@ public class AddNewPostPage {
     }
 
     private static void initMessageBody(String messageText) {
-//        messageBody = driver.findElement(By.xpath(".//*[@id='tinymce']"));
+
+//        driver.switchTo().frame("content_ifr");
+//        messageBody = driver.findElement(By.xpath("//body"));
+//        messageBody.click();
+//        JavascriptExecutor executor = (JavascriptExecutor) driver;
+//        executor.executeScript("arguments[0].innerHTML='" + messageText + "'", messageBody);
+//        driver.switchTo().defaultContent();
+
         driver.switchTo().frame("content_ifr");
-        messageBody = driver.findElement(By.xpath("//body"));
-        messageBody.click();
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].innerHTML='" + messageText + "'", messageBody);
+        driver.switchTo().activeElement().sendKeys(messageText);
         driver.switchTo().defaultContent();
     }
 
@@ -56,7 +60,10 @@ public class AddNewPostPage {
 
     private static void initPublishButton() {
 //        publishButton = driver.findElement(By.xpath(".//input[@id='publish']"));
+//        publishButton = (new WebDriverWait(driver, 5)).until(ExpectedConditions.elementToBeClickable(By.xpath(
+//                ".//*[@id='publish']")));
         publishButton = (new WebDriverWait(driver, 5)).until(ExpectedConditions.elementToBeClickable(By.xpath(
-                ".//*[@id='publish']")));
+                ".//*[@class='button button-primary button-large']")));
+
     }
 }
