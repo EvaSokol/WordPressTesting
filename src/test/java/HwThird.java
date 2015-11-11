@@ -8,9 +8,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 /**
- * Created by Eva Sokolyanskaya on 06/11/2015.
+ * Created by Eva Sokolyanskaya on 11/11/2015.
+ * HomeWork #3 Tests
  */
-public class HwSecond {
+public class HwThird {
+
 
     String userName;
     String password;
@@ -25,7 +27,7 @@ public class HwSecond {
         messageText = "qwertyText" + (int)(Math.random()*1000);
     }
 
-    @Test (priority = 10, enabled = true)
+    @Test(priority = 10, enabled = true)
     public void login() {
         Common.login(userName, password);
         Assert.assertTrue(ProfilePage.isLoggedIn(userName));
@@ -52,5 +54,4 @@ public class HwSecond {
     public void tearDown() {
         Common.close();
     }
-
 }
