@@ -1,4 +1,4 @@
-package hw3package;
+package hw3package.core;
 
 /**
  * Created by Eva Sokolyanskaya on 11/11/2015.
@@ -6,7 +6,7 @@ package hw3package;
  */
 public class ApplicationSettings {
 
-    public static String baseUrl = "http://localhost/wordpress/";
+    public static String baseUrl = "http://localhost/wordpress";
     public static String userName = "admin";
     public static String password = "admin";
 }
