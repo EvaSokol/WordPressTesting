@@ -1,7 +1,6 @@
 package hw3package.core;
 
-import hw3package.pageObjects.LoginPage;
-import hw3package.pageObjects.UserMenu;
+import hw3package.pageObjects.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterTest;
@@ -16,14 +15,12 @@ public class BaseTest {
     protected static WebDriver driver = WebDriverActions.getDriver();
     protected LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     protected UserMenu userMenu = PageFactory.initElements(driver, UserMenu.class);
+    protected AddNewPostPage addNewPostPage = PageFactory.initElements(driver, AddNewPostPage.class);
+    protected EditPostPage editPostPage = PageFactory.initElements(driver, EditPostPage.class);
+    protected ViewPostPage viewPostPage = PageFactory.initElements(driver, ViewPostPage.class);
 
-    String title;
-    String messageText;
-    public String loginPageUrl = ApplicationSettings.baseUrl + "/wp-login.php";
-
-    public void open() {
-        driver.navigate().to(loginPageUrl);
-    }
+    public static String title;
+    public static String messageText;
 
     @BeforeTest
     public void setUp() {

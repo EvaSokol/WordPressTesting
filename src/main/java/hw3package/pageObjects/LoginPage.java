@@ -14,7 +14,11 @@ public class LoginPage extends WebDriverActions {
 //        super();
 //    }
 
+    public static String loginPageUrl = ApplicationSettings.baseUrl + "/wp-login.php";
 
+    public static void open() {
+        driver.navigate().to(loginPageUrl);
+    }
 
     @FindBy(xpath = ".//input[@id='user_login']")
     public WebElement userNameField;

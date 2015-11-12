@@ -33,9 +33,10 @@ public class WebDriverActions {
         return driver;
     }
 
-    public static void mouseMoveTo(WebElement element) {
+    public void mouseMoveTo(WebElement element) {
         Actions action = new Actions(driver);
         action.moveToElement(element);
+        action.build().perform();
     }
 
     public static boolean isElementContainsText(WebElement element, String text) {
@@ -44,7 +45,7 @@ public class WebDriverActions {
         else return false;
     }
 
-    public static boolean isElementPresented(WebElement element) {
+    public boolean isElementPresented(WebElement element) {
         if (element.isDisplayed())
             return true;
         else return false;
