@@ -1,5 +1,4 @@
 import hw3package.core.BaseTest;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -40,6 +39,23 @@ public class HwThird extends BaseTest {
         Assert.assertEquals(viewPostPage.postBody.getText(), messageText);
     }
 
+    @Test(priority = 50, enabled = true)
+    public void goToAllPosts() {
+        userMenu.editPost.click();
+        userMenu.allPosts.click();
+        Assert.assertTrue(allPostsPage.allPostsPage.isEnabled());
+    }
+
+    @Test(priority = 60, enabled = true)
+    public void deleteCurrentPost() throws InterruptedException {
+//        allPostsPage.currentPostCheckBox(title).isSelected();
+//        allPostsPage.mouseMoveTo(allPostsPage.currentPostCheckBox(title));
+        allPostsPage.mouseClick(allPostsPage.currentPostCheckBox(title));
+        allPostsPage.moveToTrash();
+//        allPostsPage.isNumberChanged();
+        Thread.sleep(10000);
+        Assert.assertFalse(allPostsPage.currentPostCheckBox(title).isDisplayed());
+    }
 }
 
 

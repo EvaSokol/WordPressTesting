@@ -20,12 +20,14 @@ public class UserMenu extends WebDriverActions{
     @FindBy(xpath = ".//li[@id='menu-posts']/a/div[@class='wp-menu-name']")
     public WebElement posts;
 
-//    @FindBy(xpath = ".//*[@id='menu-posts']/ul/li/a[@href='post-new.php']")
-    public WebElement addNewPost;
+    @FindBy(xpath = ".//li[@id='menu-posts']/ul/li/a[@class='wp-first-item current']")
+    public WebElement allPosts;
 
-//    public UserMenu() {
-//        super();
-//    }
+    @FindBy(xpath = ".//*[@id='wp-admin-bar-edit']/a")
+    public WebElement editPost;
+
+
+    public WebElement addNewPost;
 
     public boolean isLoggedIn() {
         String howdy = "Howdy, " + ApplicationSettings.userName;
@@ -36,9 +38,12 @@ public class UserMenu extends WebDriverActions{
     }
 
     public WebElement initAddNewPostLink() {
-//        addNewPost = driver.findElement(By.xpath(".//*[@id='menu-posts']/ul/li/a[@href='post-new.php']"));
         addNewPost = (new WebDriverWait(driver, 5)).until(ExpectedConditions.elementToBeClickable(By.xpath(
                 ".//*[@id='menu-posts']/ul/li/a[@href='post-new.php']")));
         return addNewPost;
     }
+
+//    public WebElement allPosts() {
+//        return driver.findElement(By.xpath(".//li[@id='menu-posts']//a[@class='wp-first-item current']"));
+//    }
 }

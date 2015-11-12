@@ -18,6 +18,7 @@ public class BaseTest {
     protected AddNewPostPage addNewPostPage = PageFactory.initElements(driver, AddNewPostPage.class);
     protected EditPostPage editPostPage = PageFactory.initElements(driver, EditPostPage.class);
     protected ViewPostPage viewPostPage = PageFactory.initElements(driver, ViewPostPage.class);
+    protected AllPostsPage allPostsPage = PageFactory.initElements(driver, AllPostsPage.class);
 
     public static String title;
     public static String messageText;

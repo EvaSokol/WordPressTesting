@@ -10,10 +10,6 @@ import org.openqa.selenium.support.FindBy;
  */
 public class LoginPage extends WebDriverActions {
 
-//    public LoginPage() {
-//        super();
-//    }
-
     public static String loginPageUrl = ApplicationSettings.baseUrl + "/wp-login.php";
 
     public static void open() {
@@ -28,8 +24,6 @@ public class LoginPage extends WebDriverActions {
 
     @FindBy(xpath = ".//input[@id='wp-submit']")
     public WebElement loginButton;
-
-
 
     public void setUerName() {
         userNameField.clear();

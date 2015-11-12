@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -18,17 +19,11 @@ public class WebDriverActions {
 
     protected static WebDriver driver;
 
-//    protected WebDriverActions() {
-//        if (driver == null) {
-//            driver = new FirefoxDriver();
-//            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-//        }
-//    }
-
     public static WebDriver getDriver() {
         if (driver == null) {
             driver = new FirefoxDriver();
-            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            Wait<WebDriver> wait = new WebDriverWait(driver, 30);
         }
         return driver;
     }
@@ -36,6 +31,12 @@ public class WebDriverActions {
     public void mouseMoveTo(WebElement element) {
         Actions action = new Actions(driver);
         action.moveToElement(element);
+        action.build().perform();
+    }
+
+    public void mouseClick(WebElement element){
+        Actions action = new Actions(driver);
+        action.click(element);
         action.build().perform();
     }
 
@@ -56,6 +57,15 @@ public class WebDriverActions {
         wait.until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
                 return !driver.findElement(by).getAttribute("class").contains("disabled");
+            }
+        });
+    }
+
+    public void waitForElementText(final By by, final String text) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return !driver.findElement(by).getText().contains(text);
             }
         });
     }
