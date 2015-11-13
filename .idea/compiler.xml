@@ -22,10 +22,11 @@
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="WordPressTesting" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="WordPressTesting" target="1.8" />
+      <module name="WordPressTesting" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

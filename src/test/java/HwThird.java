@@ -57,7 +57,7 @@ public class HwThird extends BaseTest {
 //        Thread.sleep(10000);
         Assert.assertFalse(allPostsPage.currentPostCheckBox(title).isDisplayed());
 
-        Temporator.main();
+//        Temporator.main();
     }
 }
 

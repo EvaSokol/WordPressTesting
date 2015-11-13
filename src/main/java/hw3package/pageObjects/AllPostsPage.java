@@ -42,11 +42,11 @@ public class AllPostsPage extends WebDriverActions {
     public void moveToTrash() throws InterruptedException {
         mouseClick(bulkActions);
         WebElement trashOption = driver.findElement(By.xpath(".//*[@id='bulk-action-selector-top']/option[@value='trash']"));
-        mouseMoveTo(trashOption);
-        mouseClick(trashOption);
+//        mouseMoveTo(trashOption);
+//        mouseClick(trashOption);
 //        mouseMoveTo(applyButton);
 
-
+//
         Actions action= new Actions(driver);
         action.click(trashOption).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.RETURN).build().perform();
 
