@@ -43,7 +43,9 @@ public class AllPostsPage extends WebDriverActions {
         mouseMoveTo(trashOption);
         mouseClick(trashOption);
         waitForElementEnabled(By.xpath(".//*[@id='doaction']"));
-        applyButton.click();
+        mouseMoveTo(applyButton);
+        mouseClick(applyButton);
+//        applyButton.click();
         Wait<WebDriver> wait = new WebDriverWait(driver, 30);
 
     }
