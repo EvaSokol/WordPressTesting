@@ -1,4 +1,5 @@
 import hw3package.core.BaseTest;
+import hw3package.core.Temporator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -53,8 +54,10 @@ public class HwThird extends BaseTest {
         allPostsPage.mouseClick(allPostsPage.currentPostCheckBox(title));
         allPostsPage.moveToTrash();
 //        allPostsPage.isNumberChanged();
-        Thread.sleep(10000);
+//        Thread.sleep(10000);
         Assert.assertFalse(allPostsPage.currentPostCheckBox(title).isDisplayed());
+
+        Temporator.main();
     }
 }
 

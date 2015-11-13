@@ -9,7 +9,16 @@ import org.openqa.selenium.WebElement;
  */
 public class Temporator extends WebDriverActions{
 
-    WebElement button = driver.findElement(By.xpath(".//*[@value='Apply']"));
-    button.ge
+    public static WebElement button = driver.findElement(By.xpath(".//*[@value='Apply']"));
+
+    public static void main() {
+
+        for (int i=0; i<1; i++) {
+            System.out.println("value = " + button.getAttribute("value"));
+            System.out.println("id = " + button.getAttribute("id"));
+            System.out.println("class = " + button.getAttribute("class"));
+            System.out.println("type = " + button.getAttribute("type"));
+        }
+    }
 
 }

@@ -2,8 +2,10 @@ package hw3package.pageObjects;
 
 import hw3package.core.WebDriverActions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,8 +25,8 @@ public class AllPostsPage extends WebDriverActions {
     @FindBy(xpath = ".//*[@id='posts-filter']//span[@class='displaying-num']")
     private WebElement number;
 
-    @FindBy(xpath = ".//*[@id='doaction']")
-    private WebElement applyButton;
+//    @FindBy(xpath = ".//*[@id='screen-options-apply']")
+//    private WebElement applyButton;
 
 //    .//*[@id='posts-filter']//span[@class='displaying-num']
 
@@ -42,11 +44,20 @@ public class AllPostsPage extends WebDriverActions {
         WebElement trashOption = driver.findElement(By.xpath(".//*[@id='bulk-action-selector-top']/option[@value='trash']"));
         mouseMoveTo(trashOption);
         mouseClick(trashOption);
-        waitForElementEnabled(By.xpath(".//*[@id='doaction']"));
-        mouseMoveTo(applyButton);
-        mouseClick(applyButton);
+//        mouseMoveTo(applyButton);
+
+
+        Actions action= new Actions(driver);
+        action.click(trashOption).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.RETURN).build().perform();
+
+        WebElement applyButton = driver.findElement(By.xpath(".//*[@value='Apply']"));
+
+        applyButton.click();
+//        waitForElementEnabled(By.xpath(".//*[@id='doaction']"));
+
+//        mouseClick(applyButton);
 //        applyButton.click();
-        Wait<WebDriver> wait = new WebDriverWait(driver, 30);
+//        Wait<WebDriver> wait = new WebDriverWait(driver, 30);
 
     }
 
