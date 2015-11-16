@@ -1,5 +1,4 @@
 import hw3package.core.BaseTest;
-import hw3package.core.Temporator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -49,15 +48,13 @@ public class HwThird extends BaseTest {
 
     @Test(priority = 60, enabled = true)
     public void deleteCurrentPost() throws InterruptedException {
-//        allPostsPage.currentPostCheckBox(title).isSelected();
+        allPostsPage.currentPostCheckBox(title).isSelected();
 //        allPostsPage.mouseMoveTo(allPostsPage.currentPostCheckBox(title));
-        allPostsPage.mouseClick(allPostsPage.currentPostCheckBox(title));
+//        allPostsPage.mouseClick(allPostsPage.currentPostCheckBox(title));
         allPostsPage.moveToTrash();
-//        allPostsPage.isNumberChanged();
-//        Thread.sleep(10000);
+
         Assert.assertFalse(allPostsPage.currentPostCheckBox(title).isDisplayed());
 
-//        Temporator.main();
     }
 }
 

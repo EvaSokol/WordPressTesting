@@ -50,10 +50,12 @@ public class AllPostsPage extends WebDriverActions {
         Actions action= new Actions(driver);
         action.click(trashOption).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.RETURN).build().perform();
 
-        WebElement applyButton = driver.findElement(By.xpath(".//*[@value='Apply']"));
 
+        waitForElementEnabled(By.xpath(".//*[@id='doaction']"));
+//        waitForElementEnabled(By.xpath(".//*[@value='Apply']"));
+//        WebElement applyButton = driver.findElement(By.xpath(".//*[@value='Apply']"));
+        WebElement applyButton = driver.findElement(By.xpath(".//*[@id='doaction']"));
         applyButton.click();
-//        waitForElementEnabled(By.xpath(".//*[@id='doaction']"));
 
 //        mouseClick(applyButton);
 //        applyButton.click();
